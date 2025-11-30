@@ -22,7 +22,7 @@ body {
 /* Header */
 .header {
     padding: 30px;
-    border-bottom: 2px solid #d4d4d4;
+    border-bottom: 2px solid #9F9F9F;
     
 }
 
@@ -153,7 +153,7 @@ body {
 
 .sidebar {
     padding: 30px;
-    border-right: 2px solid #d4d4d4;
+    border-right: 2px solid #9F9F9F;
 }
 
 .content {
@@ -171,7 +171,7 @@ body {
     font-weight: 400;
     color: #292929;
     margin-bottom: 15px;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #9F9F9F;
     padding-bottom: 8px;
 }
 
@@ -186,7 +186,7 @@ body {
 .info-item {
     margin-bottom: 8px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #d4d4d4;
+    border-bottom: 1px solid #9F9F9F;
 }
 
 .info-item:last-child {
@@ -331,37 +331,31 @@ body {
 
 .timeline-item {
     display: grid;
-    grid-template-columns: 60px 20px 1fr;
+    grid-template-columns: 90px 20px 1fr;
     gap: 15px;
     position: relative;
-    align-items: flex-start;
+    align-items: center;
+    padding-bottom: 35px;
 }
 
 .timeline-year {
-    font-weight: 900;
-    font-size: 14px;
+    font-family: "Figtree", sans-serif;
+    font-weight: 800;
+    font-size: 16px;
     color: #fff;
-    padding: 4px 8px;
-    display: inline-block;
-    
-    
-    position: relative;
-    width: 70px;
-    height: 30px;
-    background: #2a2a2a;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    clip-path: path("M6 0 H50 Q55 0 59 4 L70 15 L59 26 Q55 30 50 30 H6 Q3 30 1 26 L10 15 L1 4 Q3 0 6 0 Z");
-    /*clip-path: polygon(
-        0% 0,
-        85% 0,
-        100% 50%,
-        85% 100%,
-        0% 100%,
-        10% 50%
-    );*/
     
+    width: 80px;
+    height: 35px;
+    background-image: url('../assets/vector.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.year-text {
+    transform: translateY(-2px);  /* moves text up only */
 }
 
 .timeline-dot {
@@ -369,21 +363,19 @@ body {
     height: 12px;
     background-color: #333;
     border-radius: 50%;
-    margin-top: 5px;
+    margin-top: 0;
+    justify-self: center;
 }
 
 .timeline-item::after {
     content: '';
     position: absolute;
-    left: 69px;
-    top: 25px;
+    left: 114px;
+    top: 24px;
     bottom: -15px;
     width: 2px;
-    background-color: #ccc;
-}
-
-.timeline-item:last-child::after {
-    display: none;
+    background-color: #9F9F9F;
+    height: 105%;
 }
 
 .timeline-content h3 {
@@ -408,7 +400,7 @@ body {
 
     .sidebar {
         border-right: none;
-        border-bottom: 2px solid #d4d4d4;
+        border-bottom: 2px solid #9F9F9F;
     }
 
     .skills-circle {
