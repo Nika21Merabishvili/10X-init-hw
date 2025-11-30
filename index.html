@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="textToggle" class="text-toggle" aria-pressed="false" title="Toggle text color">A</button>
     <div class="container">
         <!-- Header Section -->
         <header class="header">
@@ -260,6 +261,33 @@ challenges. I am confident that my skills will make a positive impact in the tec
                 }, 300 + i * 150);
             });
         });
+
+        // Text color toggle: toggles `html[data-text-color="white"]` and persists selection
+        (function() {
+            const textToggle = document.getElementById('textToggle');
+            const htmlEl = document.documentElement;
+            const saved = localStorage.getItem('textColor') || 'default';
+
+            if (saved === 'white') {
+                htmlEl.setAttribute('data-text-color', 'white');
+                if (textToggle) textToggle.setAttribute('aria-pressed', 'true');
+            }
+
+            if (!textToggle) return;
+
+            textToggle.addEventListener('click', () => {
+                const isWhite = htmlEl.getAttribute('data-text-color') === 'white';
+                if (isWhite) {
+                    htmlEl.removeAttribute('data-text-color');
+                    textToggle.setAttribute('aria-pressed', 'false');
+                    localStorage.setItem('textColor', 'default');
+                } else {
+                    htmlEl.setAttribute('data-text-color', 'white');
+                    textToggle.setAttribute('aria-pressed', 'true');
+                    localStorage.setItem('textColor', 'white');
+                }
+            });
+        })();
     </script>
 </body>
 </html>

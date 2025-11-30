@@ -64,9 +64,7 @@ body {
 
 .name {
     font-family: "Anton", sans-serif;
-    
     font-style: normal;
-    font-weight: 900;
     font-size: 65px;
     line-height: 100%;
     letter-spacing: 0%;
@@ -239,6 +237,7 @@ body {
     color: #292929;
     margin-bottom: 4px;
     text-transform: capitalize;
+
 }
 
 .skill-bar {
@@ -249,7 +248,7 @@ body {
 }
 
 .skill-fill {
-    background: linear-gradient(90deg, #8EC5FC, #E0C3FC);
+    background: linear-gradient(90deg, #84FAB0, #8FD3F4);
     height: 12px;
     border-radius: 6px;
     transition: width 1.5s ease-out;
@@ -411,4 +410,68 @@ body {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* Text-color toggle button */
+.text-toggle {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background: #292929;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.text-toggle[aria-pressed="true"] {
+    background: linear-gradient(90deg, #8EC5FC, #E0C3FC);
+    color: #292929;
+}
+
+/* When activated, make all text white */
+html[data-text-color="white"], html[data-text-color="white"] * {
+    color: #ffffff !important;
+}
+
+/* For SVG text elements (ring labels, etc.) */
+html[data-text-color="white"] svg text {
+    fill: #ffffff !important;
+}
+
+/* When toggle active, set CV background to dark */
+html[data-text-color="white"] .container {
+    background-color: #292929 !important;
+}
+
+/* Make skill-bar container and circular background (ring-bg) grey when toggle active */
+html[data-text-color="white"] .skill-bar {
+    background-color: #292929 !important;
+}
+
+html[data-text-color="white"] .ring-bg {
+    stroke: #292929 !important;
+}
+html[data-text-color="white"] .profile-image {
+    border-color: white !important;
+}
+html[data-text-color="white"] .divider {
+    background-color: white !important;
+}
+html[data-text-color="white"] .timeline-dot {
+    background-color: white !important;
+}
+
+/* Swap timeline-year badge to light variant when toggle active */
+html[data-text-color="white"] .timeline-year {
+    background-image: url('../assets/vectorW.png');
+    color: #292929 !important;
+}
+
+html[data-text-color="white"] .timeline-year .year-text {
+    color: #292929 !important;
 }
