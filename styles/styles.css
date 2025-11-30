@@ -428,6 +428,13 @@ body {
     z-index: 9999;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+.very-important-link{
+    position: fixed;
+    top: 60px;
+    left: 14px;
+    
+}
+
 .text-toggle[aria-pressed="true"] {
     background: linear-gradient(90deg, #8EC5FC, #E0C3FC);
     color: #292929;
@@ -475,3 +482,82 @@ html[data-text-color="white"] .timeline-year {
 html[data-text-color="white"] .timeline-year .year-text {
     color: #292929 !important;
 }
+
+/* Responsive improvements: fluid typography and stacked layout on small screens */
+@media (max-width: 1200px) {
+    .name, .firstname, .lastname, .software, .engineer {
+        font-size: clamp(32px, 4.2vw, 56px);
+    }
+    .profile-image {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: calc(100% - 32px);
+        margin: 12px auto;
+    }
+
+    .header {
+        padding: 18px;
+    }
+
+    .title-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .profile-image {
+        width: 110px;
+        height: 110px;
+        padding: 6px;
+    }
+
+    .name { font-size: clamp(28px, 7vw, 44px); }
+    .firstname, .lastname { font-size: clamp(22px, 6vw, 36px); }
+
+    .main-content { grid-template-columns: 1fr; }
+    .sidebar { border-right: none; border-bottom: 2px solid #9F9F9F; }
+
+    .skills-circle { grid-template-columns: repeat(2, 1fr); }
+    .skill-item { flex-direction: row; align-items: center; gap: 12px; }
+    .skill-item span { width: 110px; }
+    .skill-bar { height: 12px; }
+
+    .progress-ring { width: 110px; height: 110px; }
+    .ring-bg, .ring-progress { stroke-width: 5; }
+
+    .timeline-item { grid-template-columns: 70px 18px 1fr; }
+    .timeline-year { width: 70px; height: 34px; }
+}
+
+@media (max-width: 480px) {
+    .container { width: calc(100% - 20px); margin: 8px; }
+    .header { padding: 12px; }
+
+    .profile-image { width: 90px; height: 90px; padding: 4px; }
+    .name, .firstname, .lastname { font-size: clamp(20px, 8vw, 30px); }
+
+    .section-title { font-size: clamp(18px, 4.5vw, 22px); }
+    .section { margin-bottom: 18px; }
+
+    .skills-circle { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .progress-ring { width: 95px; height: 95px; }
+    .skill-fill { height: 10px; }
+
+    .text-toggle { top: 8px; left: 8px; width: 36px; height: 36px; }
+
+    .timeline-item { padding-bottom: 20px; grid-template-columns: 64px 18px 1fr; }
+    .timeline-year { width: 64px; height: 30px; font-size: 13px; }
+}
+
+/* Ensure links remain readable on small screens */
+a { word-break: break-word; }
